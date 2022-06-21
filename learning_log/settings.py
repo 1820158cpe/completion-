@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
 from pathlib import Path
 import os
 
@@ -21,11 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--4_8$3iqqa@++dbf+tlvh#71ug)es_00=s3!vi_!+=zbeuz&t)'
+SECRET_KEY = 'django-insecure-80t&wc_(6yjqa-9mprz&blp@0btq^9$3#((y5i-o-z&g3tfnlj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-
 ALLOWED_HOSTS = ['localhost']
 
 
@@ -38,13 +36,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    #third party apps
+    # Third party apps
     'bootstrap3',
-    
-    #my apps
+    # My apps
     'learning_logs',
     'users',
+    
 ]
 
 MIDDLEWARE = [
@@ -129,31 +126,24 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-#My settings
-LOGIN_URL = '/users/login'
-
-#settings for django-bootstrap3
+# My settings
+LOGIN_URL = '/users/login/'
+LOGOUT_URL = '/users/login/'
+# Settings for django-bootstrap3
 BOOTSTRAP3 = {
-    'include_jquery' : True,
-}
-
-#Heroku settings
+    'include_jquery': True,
+    }
+# Heroku settings
 if os.getcwd() == '/app':
     import dj_database_url
-    DATABASES = {
-        'default': dj_database_url.config(default='postgres://localhost')
-    }
-    
-    #Honor the 'X-Forwarded-Proto' header for request.is_secure().
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PHOTO', 'https')
-    
-    #Allow all host headers.
+    DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
+
+    # Honor the 'X-Forwarded-Proto' header for request.is_secure().
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+    # Allow all host headers.
     ALLOWED_HOSTS = ['*']
-    
-    #Static asset configuration
+    # Static asset configuration
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     STATIC_ROOT = 'staticfiles'
-    STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'static'),
-    )
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)

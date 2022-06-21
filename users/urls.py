@@ -1,7 +1,6 @@
-from telnetlib import LOGOUT
-from django.urls import re_path as url
+"""Defines URL patterns for users"""
+from django.conf.urls import url
 from django.contrib.auth import views as auth_views
-from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.views import LoginView
 from . import views
 

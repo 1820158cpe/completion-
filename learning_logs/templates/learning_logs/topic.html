@@ -5,9 +5,11 @@
 {% endblock header %}
 
 {% block content %}
+
     <p>
         <a href="{% url 'learning_logs:new_entry' topic.id %}">add new entry</a>
     </p>
+
     {% for entry in entries %}
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -23,8 +25,10 @@
                 {{ entry.text|linebreaks }}
             </div>
         </div> <!-- panel -->
+
     {% empty %}
-        There are no entries for this topic yet.
+            There are no entries for this topic yet.
     {% endfor %}
- 
+
 {% endblock content %}
+       
