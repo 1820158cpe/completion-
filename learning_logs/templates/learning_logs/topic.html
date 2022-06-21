@@ -24,6 +24,12 @@
             <div class="panel-body">
                 {{ entry.text|linebreaks }}
             </div>
+            <div>
+                {% if entry.photo_add %}
+                <img src="{{ entry.photo_add.url }}" width="1150" length="1150"> 
+                {% endif %}
+            </div>
+            
         </div> <!-- panel -->
 
     {% empty %}
